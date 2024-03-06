@@ -4,9 +4,10 @@
 fun main() {
     try {
         // Creamos una instancia de Robot.
-        val robot1 = Robot("R2D2", 0, 0, "POSITIVEY")
+        val robot1 = Robot("R2D2", 0, 0, DireccionesPosibles.POSITIVEY)
 
         // Creamos una serie de movimientos.
+
         val movimientos = arrayOf(
             intArrayOf(1, -5, 0, -9),
             intArrayOf(3, 3, 5, 6, 1, 0, 0, -7),
@@ -20,6 +21,7 @@ fun main() {
             robot1.mover(movimiento)
             println(robot1)
         }
+
     }catch (e: IllegalArgumentException){
         println(e.message)
     }

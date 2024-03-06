@@ -6,7 +6,7 @@
  * @property posY Int Da la posición en el eje Y.
  * @property direccion String Indica en la dirección hacia la que está direccionado el robot.
  */
-class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0, direccion: String) {
+class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: DireccionesPosibles) {
 
     // GETTER - SETTERS
     private var nombre: String = nombre
@@ -14,7 +14,14 @@ class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0
             require(nombre.isNotBlank()) { "Éste campo no puede estar vacío." }
             field = value
         }
-
+    private var posX: Int = posX
+        set(value) {
+            field = value
+        }
+    private var posY: Int = posY
+        set(value) {
+            field = value
+        }
     private var direccion: String = DireccionesPosibles.POSITIVEY.toString()
         set(value) {
             require(direccion in DireccionesPosibles.entries.map { it.name }) { "La dirección $value no es válida." }
@@ -29,9 +36,9 @@ class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0
     private fun cambiarDireccion() {
         when (direccion) {
             DireccionesPosibles.POSITIVEX.toString() -> direccion = DireccionesPosibles.POSITIVEY.toString()
-            DireccionesPosibles.POSITIVEY.toString() -> direccion = DireccionesPosibles.POSITIVEX.toString()
+            DireccionesPosibles.POSITIVEY.toString() -> direccion = DireccionesPosibles.NEGATIVEX.toString()
             DireccionesPosibles.NEGATIVEX.toString() -> direccion = DireccionesPosibles.NEGATIVEY.toString()
-            DireccionesPosibles.NEGATIVEY.toString() -> direccion = DireccionesPosibles.NEGATIVEX.toString()
+            DireccionesPosibles.NEGATIVEY.toString() -> direccion = DireccionesPosibles.POSITIVEX.toString()
         }
     }
 
@@ -46,7 +53,7 @@ class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0
      */
     fun mover(movimiento: IntArray) {
         for (paso in movimiento) {
-            when (direccion) {
+            when (direccion){
                 DireccionesPosibles.POSITIVEX.toString() -> posX += paso
                 DireccionesPosibles.NEGATIVEX.toString() -> posX -= paso
                 DireccionesPosibles.POSITIVEY.toString() -> posY += paso
@@ -54,6 +61,7 @@ class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0
             }
             cambiarDireccion()
         }
+
     }
 
     /**
@@ -77,7 +85,7 @@ class Robot(nombre: String, private var posX: Int = 0, private var posY: Int = 0
     }
 
     override fun toString(): String {
-        return "R2D2: está en la posición (${obtenerPosicion()}) ${obtenerDireccion()}."
+        return "R2D2: está en la posición ${obtenerPosicion()}, ${obtenerDireccion()}."
     }
 
 }

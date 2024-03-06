@@ -8,7 +8,9 @@
 
 ·El robot comienza en la coordenada (0, 0).
 
-·Para indicarle que se mueva, le enviamos un array formado por enteros (positivos o negativos) que indican la secuencia de pasos a dar. Por ejemplo: [10, 5, -2] indica que primero se mueve 10 pasos, se detiene, luego 5, se detiene, y finalmente 2. El resultado en este caso sería (x: -5, y: 12)
+·Para indicarle que se mueva, le enviamos un array formado por enteros (positivos o negativos) que indican la secuencia 
+de pasos a dar. Por ejemplo: [10, 5, -2] indica que primero se mueve 10 pasos, se detiene, luego 5, se detiene, y finalmente 2. 
+El resultado en este caso sería (x: -5, y: 12)
 
 ·Si el número de pasos es negativo, se desplazaría en sentido contrario al que está mirando.
 

@@ -13,7 +13,7 @@ fun main() {
             intArrayOf(3, 3, 5, 6, 1, 0, 0, -7),
             intArrayOf(2, 1, 0, -1, 1, 1, -4),
             intArrayOf(),
-            intArrayOf(3,5)
+            intArrayOf(3, 5)
         )
 
         // Hacemos que el Robot realice los movimientos y se muestren por la terminal.
@@ -21,8 +21,7 @@ fun main() {
             robot1.mover(movimiento)
             println(robot1)
         }
-
-    }catch (e: IllegalArgumentException){
+    } catch (e: IllegalArgumentException) {
         println(e.message)
     }
 

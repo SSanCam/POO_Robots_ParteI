@@ -35,8 +35,8 @@ class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: Direcciones
      */
     private fun cambiarDireccion() {
         when (direccion) {
-            DireccionesPosibles.POSITIVEX.toString() -> direccion = DireccionesPosibles.POSITIVEY.toString()
             DireccionesPosibles.POSITIVEY.toString() -> direccion = DireccionesPosibles.NEGATIVEX.toString()
+            DireccionesPosibles.POSITIVEX.toString() -> direccion = DireccionesPosibles.POSITIVEY.toString()
             DireccionesPosibles.NEGATIVEX.toString() -> direccion = DireccionesPosibles.NEGATIVEY.toString()
             DireccionesPosibles.NEGATIVEY.toString() -> direccion = DireccionesPosibles.POSITIVEX.toString()
         }
@@ -48,7 +48,7 @@ class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: Direcciones
      * Este método se encarga de mover el robot en la dirección establecida.
      * No retorna ningún valor, ya que los cambios quedan almacenados en las propiedades del objeto.
      *
-     * @param movimientos Un array de elementos enteros que representa los movimientos en las direcciones X e Y.
+     * @param movimiento Un array de elementos enteros que representa los movimientos en las direcciones X e Y.
      *
      */
     fun mover(movimiento: IntArray) {
@@ -71,7 +71,8 @@ class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: Direcciones
      * @return La dirección actual del robot.
      */
     private fun obtenerDireccion(): String {
-        return direccion
+        val direccionFormat = direccion
+        return direccionFormat
     }
 
     /**

@@ -6,7 +6,7 @@
  * @property posY Int Da la posición en el eje Y.
  * @property direccion String Indica en la dirección hacia la que está direccionado el robot.
  */
-class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: DireccionesPosibles) {
+class Robot(nombre: String, posX: Int , posY: Int, direccion: DireccionesPosibles) {
 
     // GETTER - SETTERS
     private var nombre: String = nombre
@@ -14,11 +14,11 @@ class Robot(nombre: String, posX: Int = 0, posY: Int = 0, direccion: Direcciones
             require(nombre.isNotBlank()) { "Éste campo no puede estar vacío." }
             field = value
         }
-    private var posX: Int = posX
+    private var posX: Int = 0
         set(value) {
             field = value
         }
-    private var posY: Int = posY
+    private var posY: Int = 0
         set(value) {
             field = value
         }
